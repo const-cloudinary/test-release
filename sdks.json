@@ -2,15 +2,23 @@
   "SDKS": [
     {
       "key": "PHP",
-      "value": "php"
+      "value": "php",
+      "repo": "{package}_php"
     },
     {
       "key": "Python",
-      "value": "python"
+      "value": "python",
+      "repo": "py{package}"
     },
     {
       "key": "Java",
-      "value": "java"
+      "value": "java",
+      "repo": "{package}_java"
+    },
+    {
+      "key": "NodeJS",
+      "value": "nodejs",
+      "repo": "{package}_npm",
     }
   ]
 }
