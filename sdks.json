@@ -1,0 +1,16 @@
+{
+  "SDKS": [
+    {
+      "key": "PHP",
+      "value": "php"
+    },
+    {
+      "key": "Python",
+      "value": "python"
+    },
+    {
+      "key": "Java",
+      "value": "java"
+    }
+  ]
+}
