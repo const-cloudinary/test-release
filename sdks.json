@@ -18,7 +18,7 @@
     {
       "key": "NodeJS",
       "value": "nodejs",
-      "repo": "{package}_npm",
+      "repo": "{package}_npm"
     }
   ]
 }
