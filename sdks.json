@@ -13,7 +13,7 @@
     {
       "key": "Java",
       "value": "java",
-      "repo": "{package}_java"
+      "repo": "{package}_jar"
     },
     {
       "key": "NodeJS",
