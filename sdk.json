@@ -17,7 +17,7 @@
     },
     {
       "key": "NodeJS",
-      "value": "nodejs",
+      "value": "typescript-node",
       "repo": "{package}_npm"
     }
   ]
