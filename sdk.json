@@ -3,21 +3,25 @@
     {
       "key": "PHP",
       "value": "php",
+      "template": "php",
       "repo": "{package}_php"
     },
     {
       "key": "Python",
       "value": "python",
+      "template": "python",
       "repo": "py{package}"
     },
     {
       "key": "Java",
       "value": "java",
+      "template": "java",
       "repo": "{package}_jar"
     },
     {
       "key": "NodeJS",
-      "value": "typescript-node",
+      "value": "nodejs",
+      "template": "typescript-node",
       "repo": "{package}_npm"
     }
   ]
