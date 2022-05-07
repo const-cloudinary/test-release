@@ -5,13 +5,13 @@ It is meant to run in the Jenkins job, although it can be run independently.
 
 See main function docstring for the required environment variables.
 """
+import json
 import logging
 import os
 import shutil
 import subprocess
 import sys
 
-import requests
 import yaml
 
 OPEN_API_GEN = '/opt/homebrew/bin/openapi-generator'
@@ -63,13 +63,11 @@ def main():
         logging.warning("No SDKs to generate...")
         return 0
 
-    spec = requests.get(definition_file).json()
+    with open(definition_file, 'r') as f:
+        spec = json.load(f)
 
-    resp = requests.get(api_spec)
-    if resp.status_code != 200:
-        exit_with_error(f"Failed getting YML file: {resp.text}")
-
-    yml = yaml.safe_load(resp.text)
+    with open(api_spec, "r") as f:
+        yml = yaml.safe_load(f)
 
     package = camel_to_snake(yml["info"]["title"])
     version = yml["info"]["version"]
@@ -101,8 +99,8 @@ def main():
         if dry_run:
             return 0
 
-       # run_command("git", "push")
-       # run_command("git", "push", "--tags")
+        # run_command("git", "push")
+        # run_command("git", "push", "--tags")
 
         os.chdir("..")
 
@@ -110,10 +108,10 @@ def main():
 
 
 if __name__ == '__main__':
-    #os.environ["YML"] = "https://raw.githubusercontent.com/CloudinaryLtd/service_interfaces/master/media-delivery/schema.yml?token=GHSAT0AAAAAABHTNHGTH4UHJTIJ2SOP4T2UYTPAIYA"
-    #os.environ["DEFINITION_FILE"] = "https://raw.githubusercontent.com/const-cloudinary/test-release/master/sdk.json"
+    # os.environ["YML"] = "https://raw.githubusercontent.com/CloudinaryLtd/service_interfaces/master/media-delivery/schema.yml?token=GHSAT0AAAAAABHTNHGTH4UHJTIJ2SOP4T2UYTPAIYA"
+    # os.environ["DEFINITION_FILE"] = "https://raw.githubusercontent.com/const-cloudinary/test-release/master/sdk.json"
     # # os.environ["SDKS"] = "python,php,java,nodejs"
-    #os.environ["SDKS"] = "php,nodejs"
-    #os.environ["ORG_NAME"] = "const-cloudinary"
+    # os.environ["SDKS"] = "php,nodejs"
+    # os.environ["ORG_NAME"] = "const-cloudinary"
 
     main()
