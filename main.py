@@ -48,6 +48,8 @@ def main():
     """
     dry_run = os.getenv("DRY_RUN")
 
+    logging.info(f"Dry run:'{dry_run}'")
+    
     api_spec = os.getenv("YML")
     """The source OpenApi spec YML file."""
 
