@@ -23,6 +23,10 @@ def camel_to_snake(s):
     return ''.join(['_' + c.lower() if c.isupper() else c for c in s]).lstrip("_").replace(" ", "")
 
 
+def parse_bool(b):
+    return b.lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
+
+
 def exit_with_error(msg):
     logging.error(msg)
     sys.exit(1)
@@ -46,10 +50,8 @@ def main():
     Generates the specified packages based on the environment variables.
     :return: 0 on success and any other status code on error
     """
-    dry_run = os.getenv("DRY_RUN")
+    dry_run = parse_bool(os.getenv("DRY_RUN"))
 
-    logging.info(f"Dry run:'{dry_run}'")
-    
     api_spec = os.getenv("YML")
     """The source OpenApi spec YML file."""
 
