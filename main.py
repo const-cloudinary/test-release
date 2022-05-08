@@ -16,6 +16,8 @@ import yaml
 
 OPEN_API_GEN = '/opt/homebrew/bin/openapi-generator'
 
+logging.basicConfig(level=logging.INFO)
+
 
 def camel_to_snake(s):
     return ''.join(['_' + c.lower() if c.isupper() else c for c in s]).lstrip("_").replace(" ", "")
@@ -97,6 +99,7 @@ def main():
         run_command("git", "tag", "-a", version, "-m", f"Version {version}")
 
         if dry_run:
+            logging.info("Dry Run, no further steps performed.")
             return 0
 
         # run_command("git", "push")
