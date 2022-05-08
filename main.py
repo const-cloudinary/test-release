@@ -108,8 +108,8 @@ def main():
             os.chdir("..")
             continue
 
-        # run_command("git", "push")
-        # run_command("git", "push", "--tags")
+        run_command("git", "push")
+        run_command("git", "push", "--tags")
 
         os.chdir("..")
 
