@@ -101,7 +101,7 @@ def main():
         if dry_run:
             logging.info("Dry Run, no further steps performed.")
             os.chdir("..")
-            return 0
+            continue
 
         # run_command("git", "push")
         # run_command("git", "push", "--tags")
