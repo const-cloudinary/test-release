@@ -3,3 +3,4 @@ additionalProperties:
   infoUrl: https://cloudinary.com
   apiPackage: Cloudinary
   invokerPackage: Cloudinary
+  httpUserAgent: CloudinaryPHP
