@@ -89,7 +89,7 @@ def main():
 
         run_command("git", "clone", repo_url)
 
-        run_command(OPEN_API_GEN, "generate", "-i", api_spec, "-g", template, "-o", repo_name)
+        run_command(OPEN_API_GEN, "generate", "-i", api_spec, "-g", template, "-t", f"templates/{sdk}", "-o", repo_name)
 
         os.chdir(repo_name)
 
