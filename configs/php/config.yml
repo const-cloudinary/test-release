@@ -1,3 +1,4 @@
 additionalProperties:
   gitUserId: cloudinary
   infoUrl: https://cloudinary.com
+  apiPackage: Cloudinary

@@ -93,7 +93,7 @@ def main():
                     "--git-user-id", org_name,
                     "--git-repo-id", repo_name,
                     "--package-name", repo_name,
-                    "-c", "config.yml",
+                    "-c", f"configs/{sdk}/config.yml",
                     "-o", repo_name)
 
         os.chdir(repo_name)
