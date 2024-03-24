@@ -26,9 +26,9 @@ jobs:
 
       - name: Send Slack notification on failure
         if: failure()
-        uses: slack/send-message-action@v2
+        uses: slackapi/slack-github-action@v1.25.0
         with:
-          channel: your_slack_channel
+          channel-id: sdk-ci
           text: "Failed to merge branch '${{ github.ref }}' into $TARGET_BRANCH"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
