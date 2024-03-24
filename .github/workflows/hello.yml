@@ -1,4 +1,5 @@
 name: Auto Merge and Notify
+run-name: Auto Merge and Notify
 
 on:
   push:
@@ -29,6 +30,6 @@ jobs:
         uses: slackapi/slack-github-action@v1.25.0
         with:
           channel-id: sdk-ci
-          text: "Failed to merge branch '${{ github.ref }}' into $TARGET_BRANCH"
+          slack-message: "Failed to merge branch '${{ github.ref }}' into $TARGET_BRANCH"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
