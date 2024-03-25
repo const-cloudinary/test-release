@@ -49,4 +49,4 @@ jobs:
           name: Link Check Run Details
           conclusion: ${{ job.status }}
           output: |
-            {"summary":"${{ steps.test.outputs.summary }}", "details_url": "https://cloudinary.com/documentation"}
+            {"summary":"${{ steps.test.outputs.summary }}", "details_url": "https://cloudinary.com/documentation", "text_description": "Some dummy https://cloudinary.com/documentation"}
