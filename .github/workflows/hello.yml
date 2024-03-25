@@ -5,7 +5,13 @@ on:
   push:
     branches:
       - master
-
+      
+permissions:
+  id-token: write
+  contents: write
+  checks: write
+  statuses: write
+  
 jobs:
   merge_and_notify:
     runs-on: ubuntu-latest
@@ -35,3 +41,12 @@ jobs:
           slack-message: "Failed to merge branch '${{ github.ref }}' into $TARGET_BRANCH"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Set link checker report details
+        uses: LouisBrunner/checks-action@v2.0.0
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Link Check Run Details
+          conclusion: ${{ job.status }}
+          output: |
+            {"summary":"${{ steps.test.outputs.summary }}", "details_url": "https://cloudinary.com/documentation"}
