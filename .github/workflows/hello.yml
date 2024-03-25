@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Merge changes
         run: |
@@ -32,5 +34,4 @@ jobs:
           channel-id: sdk-ci
           slack-message: "Failed to merge branch '${{ github.ref }}' into $TARGET_BRANCH"
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
