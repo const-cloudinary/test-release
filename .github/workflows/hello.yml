@@ -51,6 +51,5 @@ jobs:
             {"summary":"${{ steps.test.outputs.summary }}", "details_url": "https://cloudinary.com/documentation", "text_description": "Some dummy https://cloudinary.com/documentation"}
       - name: Check annotations
         run: |
-          echo "::error title=Links Check Report links::Report https://github.com/your/repo/wiki/GHA-0001"
-          echo "::notice title=Links Check Report links::Report https://github.com/your/repo/wiki/GHA-0001"
+          echo "::notice title=Links Check Report links::https://github.com/your/repo/wiki/GHA-0001"
     
