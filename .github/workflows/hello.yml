@@ -37,7 +37,7 @@ jobs:
         uses: slackapi/slack-github-action@v1.25.0
         with:
           channel-id: sdk-ci
-          slack-message: "Test message for merge branch '${{ github.ref }}' into '${{ env.TARGET_BRANCH }}'"
+          slack-message: "Test message for merge branch '${{ github.ref }}' into '${{ env.TARGET_BRANCH }}'\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       - name: Set link checker report details
@@ -51,5 +51,5 @@ jobs:
             {"summary":"${{ steps.test.outputs.summary }}", "details_url": "https://cloudinary.com/documentation", "text_description": "Some dummy https://cloudinary.com/documentation"}
       - name: Check annotations
         run: |
-          echo "::notice title=Links Check Report links::https://github.com/your/repo/wiki/GHA-0001"
+          echo "::notice title=Links Check Report ::https://github.com/your/repo/wiki/GHA-0001"
     
