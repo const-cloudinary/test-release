@@ -37,7 +37,7 @@ jobs:
         uses: slackapi/slack-github-action@v1.25.0
         with:
           channel-id: sdk-ci
-          slack-message: "Test merge branch '${{ github.ref }}' into $TARGET_BRANCH"
+          slack-message: "Test message for merge branch '${{ github.ref }}' into '${{ env.TARGET_BRANCH }}'"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       - name: Set link checker report details
@@ -49,3 +49,9 @@ jobs:
           conclusion: ${{ job.status }}
           output: |
             {"summary":"${{ steps.test.outputs.summary }}", "details_url": "https://cloudinary.com/documentation", "text_description": "Some dummy https://cloudinary.com/documentation"}
+      - name: Check annotations
+        run: |
+          echo "::error file=README.md,line=1,title=testing links::Report https://github.com/your/repo/wiki/GHA-0001"
+          echo "::debug::Set the Octocat variable links::Report https://github.com/your/repo/wiki/GHA-0001"
+          echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+    
