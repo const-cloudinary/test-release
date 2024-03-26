@@ -34,11 +34,10 @@ jobs:
           git push origin $TARGET_BRANCH || { echo "Merge failed"; exit 1; }
 
       - name: Send Slack notification on failure
-        if: failure()
         uses: slackapi/slack-github-action@v1.25.0
         with:
           channel-id: sdk-ci
-          slack-message: "Failed to merge branch '${{ github.ref }}' into $TARGET_BRANCH"
+          slack-message: "Test merge branch '${{ github.ref }}' into $TARGET_BRANCH"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       - name: Set link checker report details
