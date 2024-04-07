@@ -27,6 +27,8 @@ jobs:
 
       - name: Merge changes
         run: |
+          git config --global user.email "cld-auto-merge-bot@cloudinary.com"
+          git config --global user.name "cld-auto-merge-bot"
           git fetch origin
           git checkout $TARGET_BRANCH
           git pull origin $TARGET_BRANCH
